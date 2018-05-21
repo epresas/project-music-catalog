@@ -1,6 +1,22 @@
-<!-- DASHBOARD -->
+<div class="container-fluid">
 
-<div id="log_reg">
+<!-- DASHBOARD -->
+<div class="row">
+  <div *ngIf="identity" class="navigation col-lg-1">
+    <h1>{{title}}</h1>
+  </div>
+  <div class="clearfix"></div>
+
+  <div *ngIf="identity" class="central col-lg-11">
+    <p>Log Successful</p>
+  </div>
+
+</div>
+
+<!-- LOGIN / REGISTER -->
+
+<div id="log_reg" *ngIf="!identity">
+
   <div class="login-page">
     <div class="form">
 
@@ -8,21 +24,24 @@
         <div class="title">
           <p> Register</p>
         </div>
-        <input type="text" placeholder="name" />
-        <input type="text" placeholder="surname" />
-        <input type="password" placeholder="password" />
-        <input type="text" placeholder="email address" />
+        <input type="text" placeholder="name" name = "name"  required/>
+        <input type="text" placeholder="surname" name = "surname"  required/>
+        <input type="email" placeholder="email address" name = "email" required />
+        <input type="password" placeholder="password" name = "password"  required/>
         <button>create</button>
         
         <p class="message">Already registered? <a href="#" (click) = "toggleRegister()">Sign In</a></p>
       </form>
 
-      <form class="login-form" [@loginState]="loginState" >
+      <form #loginForm = "ngForm" (ngSubmit) = "onSubmit()" class="login-form" [@loginState]="loginState" >
         <div class="title">
           <p> Login</p>
         </div>
-        <input type="email" class="input-block-level" placeholder="Email address" name="txtemail" required />
-        <input type="password" class="input-block-level" placeholder="Password" name="txtupass" required />
+        
+          <input type="email" #email="ngModel" [(ngModel)]="user.email" class="input-block-level" placeholder="Email address" name="email" required />
+          <!-- <span *ngIf="!email.valid && email.touched">Campo obligatorio</span> -->
+       
+        <input type="password" #password = "ngModel" [(ngModel)]="user.password" class="input-block-level" placeholder="Password" name="password" required />
         <button type="submit" name="btn-login">Login</button>
         <p class="message">Not registered? <a href="#" (click) = "toggleLogin()">Create an account</a>
         </p>
@@ -30,3 +49,7 @@
     </div>
   </div>
 </div>
+
+<!-- END CONTAINER -->
+</div> 
+
