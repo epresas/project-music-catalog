@@ -1,0 +1,109 @@
+/*LOGIN*/
+
+@import url(https://fonts.googleapis.com/css?family=Lato);
+#log_reg {
+  background-image: url(http://static.tumblr.com/4aa2d12cad2b611779826ebb25800842/9nimsoa/4Hymox5z5/tumblr_static_mistyforestagain.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+
+.form {
+  position: relative;
+  z-index: 1;
+  opacity: 0.75;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  height: 460px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form input {
+  font-family: "Lato", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: background-color .5s, color .7s;
+}
+.form input:focus {
+    background-color: rgba(104, 195, 159, .7);
+    color: white;
+}
+.form input:focus::-webkit-input-placeholder {
+    color: white;
+}
+
+
+
+.title {
+  margin-bottom: 15px;
+  color: #68c39f;
+}
+
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #68c39f;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.form button:hover,
+.form button:active,
+.form button:focus {
+  background: #68c39f;
+}
+
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.form .register-form {
+  /* display: none */
+  
+  
+}
+
+.form .login-form {
+    position: absolute;
+    top: 52px;
+    padding-right: 40px;
+
+}
+
+body {
+  background: #f3f3f3;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*FIN VERSION 1*/

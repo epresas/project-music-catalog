@@ -1,0 +1,32 @@
+<!-- DASHBOARD -->
+
+<div id="log_reg">
+  <div class="login-page">
+    <div class="form">
+
+      <form class="register-form" [@registerState]="registerState" >
+        <div class="title">
+          <p> Register</p>
+        </div>
+        <input type="text" placeholder="name" />
+        <input type="text" placeholder="surname" />
+        <input type="password" placeholder="password" />
+        <input type="text" placeholder="email address" />
+        <button>create</button>
+        
+        <p class="message">Already registered? <a href="#" (click) = "toggleRegister()">Sign In</a></p>
+      </form>
+
+      <form class="login-form" [@loginState]="loginState" >
+        <div class="title">
+          <p> Login</p>
+        </div>
+        <input type="email" class="input-block-level" placeholder="Email address" name="txtemail" required />
+        <input type="password" class="input-block-level" placeholder="Password" name="txtupass" required />
+        <button type="submit" name="btn-login">Login</button>
+        <p class="message">Not registered? <a href="#" (click) = "toggleLogin()">Create an account</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
