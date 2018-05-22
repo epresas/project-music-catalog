@@ -72,8 +72,32 @@
 .form button:hover,
 .form button:active,
 .form button:focus {
-  background: #68c39f;
+  background: #5cdeab;
+
 }
+.logout-button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  outline: 0;
+  background: #68c39f;
+  width: 100px;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.logout-button:hover,
+.logout-button:active,
+.logout-button:focus {
+  background: #5cdeab;
+
+}
+
 
 .form .message {
   margin: 15px 0 0;

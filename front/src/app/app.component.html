@@ -8,7 +8,8 @@
   <div class="clearfix"></div>
 
   <div *ngIf="identity" class="central col-lg-11">
-    <p>Log Successful</p>
+    <p>Log Successful! Welcome  {{identity.name}} {{identity.surname}}</p>
+    <div class="logout-button" (click)="logOut()">Log out</div>
   </div>
 
 </div>
@@ -20,14 +21,14 @@
   <div class="login-page">
     <div class="form">
 
-      <form class="register-form" [@registerState]="registerState" >
+      <form class="register-form" #registerForm = "ngForm" (ngSubmit) = "onSubmitRegister()" [@registerState]="registerState" >
         <div class="title">
           <p> Register</p>
         </div>
-        <input type="text" placeholder="name" name = "name"  required/>
-        <input type="text" placeholder="surname" name = "surname"  required/>
-        <input type="email" placeholder="email address" name = "email" required />
-        <input type="password" placeholder="password" name = "password"  required/>
+        <input type="text" #name= "ngModel" [(ngModel)]="user_register.name" placeholder="name" name = "name"  required/>
+        <input type="text" #surname= "ngModel" [(ngModel)]="user_register.surname" placeholder="surname" name = "surname"  required/>
+        <input type="email" #email= "ngModel" [(ngModel)]="user_register.email" placeholder="email address" name = "email" required />
+        <input type="password" #password= "ngModel" [(ngModel)]="user_register.password" placeholder="password" name = "password"  required/>
         <button>create</button>
         
         <p class="message">Already registered? <a href="#" (click) = "toggleRegister()">Sign In</a></p>
@@ -47,6 +48,13 @@
         </p>
       </form>
     </div>
+
+    <!-- Mensaje error login -->
+
+    <div class="alert alert-danger error-message" role="alert" *ngIf="errorMessage">
+      <strong>Error!</strong> {{errorMessage}}
+    </div>
+
   </div>
 </div>
 
