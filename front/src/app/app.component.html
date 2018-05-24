@@ -9,6 +9,7 @@
 
   <div *ngIf="identity" class="central col-lg-11">
     <p>Log Successful! Welcome  {{identity.name}} {{identity.surname}}</p>
+    <app-user-edit></app-user-edit> 
     <div class="logout-button" (click)="logOut()">Log out</div>
   </div>
 
@@ -49,10 +50,15 @@
       </form>
     </div>
 
-    <!-- Mensaje error login -->
+    <!-- Mensaje error login/registro -->
 
     <div class="alert alert-danger error-message" role="alert" *ngIf="errorMessage">
       <strong>Error!</strong> {{errorMessage}}
+    </div>
+
+    <!-- Mensaje exito login/registro  -->
+    <div class="alert alert-success success-message" role="alert" *ngIf="successMessage">
+      {{successMessage}}
     </div>
 
   </div>

@@ -9,17 +9,19 @@ import { UserService } from './services/user.service';
 
 
 import { AppComponent } from './app.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+	  AppComponent,
+	  UserEditComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    HttpModule,
-    HttpClientModule
+	  BrowserModule,
+	  FormsModule,
+	  BrowserAnimationsModule,
+	  HttpModule,
+	  HttpClientModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
