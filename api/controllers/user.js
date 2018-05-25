@@ -74,7 +74,7 @@ function login(req, res){
                         //Decodificar datos para devolver el token
                         if (params.gethash) {
                             res.status(200).send({
-                                token: jwt.createToken({user})//user es el objeto obtenido en el findOne (linea 60)
+                                token: jwt.createToken(user)//user es el objeto obtenido en el findOne (linea 60)
                             }); 
                         } else {
                             res.status(200).send({user});
@@ -104,6 +104,13 @@ function updateUser(req, res){
     var userId = req.params.id;
     var updateData = req.body;
 
+    if (userId != req.user.sub) {
+        console.log(userId, "id token ", req.user.sub);
+        // Comparo si el id del token (middleware) es igual al id del usuario para soltar un mensaje de error y salir de la ejecucion (return), sino sigo el flujo
+       return res.status(403).send({message: "Token incorrecto, sin autorización para actualizar."});
+        
+    }
+
     User.findByIdAndUpdate(userId, updateData,(err, updatedUser)=>{
         if (err) {
             res.status(500).send({message: 'Error en la actualización'});
@@ -111,7 +118,7 @@ function updateUser(req, res){
             if (!updatedUser) {
                 res.status(400).send({message:'No se ha podido actualizar.'})
             }else{
-                res.status(200).send({message:'Actualización completada.'})
+                res.status(200).send(updatedUser);
                 
             }
         }

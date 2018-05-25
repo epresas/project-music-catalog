@@ -1,4 +1,38 @@
 <div class="col-lg-6" *ngIf="identity">
-  <h1>{{titulo}}</h1>
-  <form action=""></form>
+ 
+  
+<form class="update-form" #updateForm="ngForm" (ngSubmit)="onSubmit()" >
+	<div class="title">
+    	<p>{{titulo}}</p>
+	</div>
+	<div class="form-group">
+		<label for="name">Name</label>
+		<input type="text" #name="ngModel" [(ngModel)]="user.name" class="form-control" placeholder="name" name="name" required/>
+	</div>
+	<div class="form-group">
+		<label for="surname">Surname</label>
+		<input type="text" #surname="ngModel" [(ngModel)]="user.surname" class="form-control" placeholder="surname" name="surname" required/>
+	</div>
+	<div class="form-group">
+		<label for="email">Email</label>
+		<input type="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" placeholder="email address" name="email" required/>
+	</div>
+	
+	<button class="btn btn-primary">Update</button>
+
+</form>
+
+<!-- Mensaje error login/registro -->
+
+<div class="alert alert-danger error-message" role="alert" *ngIf="errorMessage">
+  <strong>Error!</strong> {{errorMessage}}
+</div>
+
+<!-- Mensaje exito login/registro  -->
+<div class="alert alert-success success-message" role="alert" *ngIf="successMessage">
+  {{successMessage}}
+</div>
+
+
+
 </div>

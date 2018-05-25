@@ -7,7 +7,7 @@ import { NgModule } from '@angular/core';
 
 import { UserService } from './services/user.service';
 
-
+import { routing, appRoutingProviders } from './app.routing';
 import { AppComponent } from './app.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 
@@ -21,9 +21,13 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
 	  FormsModule,
 	  BrowserAnimationsModule,
 	  HttpModule,
-	  HttpClientModule
+	  HttpClientModule,
+	  routing,
   ],
-  providers: [UserService],
+  providers: [
+	  UserService,
+	  appRoutingProviders,
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
