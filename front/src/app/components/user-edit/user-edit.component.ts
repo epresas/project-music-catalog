@@ -70,7 +70,7 @@ export class UserEditComponent implements OnInit {
 						this.successMessage = null;
 					}, 3000);
 					console.log('Usuario actualizado correctamente (onSubmit).');
-					// this.user = new User('', '', '', '', '', 'ROLE_USER', '');
+					this.user = new User('', '', '', '', '', 'ROLE_USER', '');
 
 				// }
 

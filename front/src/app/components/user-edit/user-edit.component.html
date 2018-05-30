@@ -1,4 +1,4 @@
-<div class="col-lg-6" *ngIf="identity">
+<div class="col-lg-6 user-edit" *ngIf="identity">
  
   
 <form class="update-form" #updateForm="ngForm" (ngSubmit)="onSubmit()" >
@@ -17,16 +17,16 @@
 		<label for="email">Email</label>
 		<input type="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" placeholder="email address" name="email" required/>
 	</div>
-	<div class="image-for-edit" *ngIf="user.image && user.image!= 'null'">
-		<img src="{{url+ 'user-get-avatar/' + user.image}}" alt="" style="width: 200px" class="img-thumbnail">
-	</div>
 	<div class="form-group">
 		<label for="image">Image</label>
 		<input type="file" class="form-control" placeholder="Upload image" (change)="fileChangeEvent($event)" />
 	</div>
+	<div class="image-for-edit form-group" *ngIf="user.image">
+		<img src="{{url+ 'user-get-avatar/' + user.image}}" alt="" style="width: 200px" class="img-thumbnail">
+	</div>
 	
 	
-	<button class="btn btn-primary">Update</button>
+	<button class=" btn button">Update</button>
 
 </form>
 

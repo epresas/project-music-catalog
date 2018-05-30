@@ -17,14 +17,14 @@
     </nav>
     <nav id="user_logged">
         <div class="user-image rounded" >
-        <img id="user-image" src="{{url + 'user-get-avatar/' + identity.image}}" alt="" >
+        <img id="user-image" src="{{url + 'user-get-avatar/' + identity.image}}" alt="" onerror="this.onerror=null;this.src='imagefound.gif';" >
         </div>
 
         <span id="identity_name">{{identity.name}}</span>
 
        
-        <a  [routerLink]="['/user-data']"><span class="fas fa-cog" aria-hidden="true" ></span>Account settings</a>
-        <span class="btn btn-success" (click)="logOut()">Log out</span>
+        <a  [routerLink]="['/user-data']"><span class="fas fa-user-edit" aria-hidden="true" ></span>User edit</a>
+        <a class="btn logout-button " (click)="logOut()"><span class="fas fa-sign-out-alt"></span> Log out</a>
     </nav>
 
   </div>
@@ -48,16 +48,18 @@
       <div class="form">
 
         <form class="register-form" #registerForm = "ngForm" (ngSubmit) = "onSubmitRegister()" [@registerState]="registerState" >
-          <div class="title">
+            <div class="title">
             <p> Register</p>
-          </div>
-          <input type="text" #name= "ngModel" [(ngModel)]="user_register.name" placeholder="name" name = "name"  required/>
-          <input type="text" #surname= "ngModel" [(ngModel)]="user_register.surname" placeholder="surname" name = "surname"  required/>
-          <input type="email" #email= "ngModel" [(ngModel)]="user_register.email" placeholder="email address" name = "email" required />
-          <input type="password" #password= "ngModel" [(ngModel)]="user_register.password" placeholder="password" name = "password"  required/>
-          <button>create</button>
+            </div>
+            <input type="text" #name= "ngModel" [(ngModel)]="user_register.name" placeholder="name" name = "name"  required/>
+            <input type="text" #surname= "ngModel" [(ngModel)]="user_register.surname" placeholder="surname" name = "surname"  required/>
+            <input type="email" #email= "ngModel" [(ngModel)]="user_register.email" placeholder="email address" name = "email" required />
+            <input type="password" #password= "ngModel" [(ngModel)]="user_register.password" placeholder="password" name = "password"  required/>
+            <button class="button" type="submit" name="btn-login">Login</button>
+
+
           
-          <p class="message">Already registered? <a href="#" (click) = "toggleRegister()">Sign In</a></p>
+            <p class="message">Already registered? <a href="#" (click) = "toggleRegister()">Sign In</a></p>
         </form>
 
         <form #loginForm = "ngForm" (ngSubmit) = "onSubmit()" class="login-form" [@loginState]="loginState" >
@@ -69,7 +71,7 @@
             <!-- <span *ngIf="!email.valid && email.touched">Campo obligatorio</span> -->
         
           <input type="password" #password = "ngModel" [(ngModel)]="user.password" class="input-block-level" placeholder="Password" name="password" required />
-          <button type="submit" name="btn-login">Login</button>
+          <button  class="button" type="submit" name="btn-login">Login</button>
           <p class="message">Not registered? <a href="#" (click) = "toggleLogin()">Create an account</a>
           </p>
         </form>
