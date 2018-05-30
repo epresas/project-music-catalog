@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid ">
 
 
 <!-- DASHBOARD -->
@@ -16,8 +16,8 @@
 
     </nav>
     <nav id="user_logged">
-        <div class="user-image img-thumbnail"  style="width: 150px">
-        <img id="user-image" src="{{url + 'user-get-avatar/' + identity.image}}" alt="" style="width: 100%">
+        <div class="user-image rounded" >
+        <img id="user-image" src="{{url + 'user-get-avatar/' + identity.image}}" alt="" >
         </div>
 
         <span id="identity_name">{{identity.name}}</span>
@@ -38,56 +38,59 @@
 
 
 
-</div>
+
 
 <!-- LOGIN / REGISTER -->
 
-<div id="log_reg" *ngIf="!identity">
+  <div id="log_reg" *ngIf="!identity">
 
-  <div class="login-page">
-    <div class="form">
+    <div class="login-page">
+      <div class="form">
 
-      <form class="register-form" #registerForm = "ngForm" (ngSubmit) = "onSubmitRegister()" [@registerState]="registerState" >
-        <div class="title">
-          <p> Register</p>
-        </div>
-        <input type="text" #name= "ngModel" [(ngModel)]="user_register.name" placeholder="name" name = "name"  required/>
-        <input type="text" #surname= "ngModel" [(ngModel)]="user_register.surname" placeholder="surname" name = "surname"  required/>
-        <input type="email" #email= "ngModel" [(ngModel)]="user_register.email" placeholder="email address" name = "email" required />
-        <input type="password" #password= "ngModel" [(ngModel)]="user_register.password" placeholder="password" name = "password"  required/>
-        <button>create</button>
+        <form class="register-form" #registerForm = "ngForm" (ngSubmit) = "onSubmitRegister()" [@registerState]="registerState" >
+          <div class="title">
+            <p> Register</p>
+          </div>
+          <input type="text" #name= "ngModel" [(ngModel)]="user_register.name" placeholder="name" name = "name"  required/>
+          <input type="text" #surname= "ngModel" [(ngModel)]="user_register.surname" placeholder="surname" name = "surname"  required/>
+          <input type="email" #email= "ngModel" [(ngModel)]="user_register.email" placeholder="email address" name = "email" required />
+          <input type="password" #password= "ngModel" [(ngModel)]="user_register.password" placeholder="password" name = "password"  required/>
+          <button>create</button>
+          
+          <p class="message">Already registered? <a href="#" (click) = "toggleRegister()">Sign In</a></p>
+        </form>
+
+        <form #loginForm = "ngForm" (ngSubmit) = "onSubmit()" class="login-form" [@loginState]="loginState" >
+          <div class="title">
+            <p> Login</p>
+          </div>
+          
+            <input type="email" #email="ngModel" [(ngModel)]="user.email" class="input-block-level" placeholder="Email address" name="email" required />
+            <!-- <span *ngIf="!email.valid && email.touched">Campo obligatorio</span> -->
         
-        <p class="message">Already registered? <a href="#" (click) = "toggleRegister()">Sign In</a></p>
-      </form>
+          <input type="password" #password = "ngModel" [(ngModel)]="user.password" class="input-block-level" placeholder="Password" name="password" required />
+          <button type="submit" name="btn-login">Login</button>
+          <p class="message">Not registered? <a href="#" (click) = "toggleLogin()">Create an account</a>
+          </p>
+        </form>
+      </div>
 
-      <form #loginForm = "ngForm" (ngSubmit) = "onSubmit()" class="login-form" [@loginState]="loginState" >
-        <div class="title">
-          <p> Login</p>
-        </div>
-        
-          <input type="email" #email="ngModel" [(ngModel)]="user.email" class="input-block-level" placeholder="Email address" name="email" required />
-          <!-- <span *ngIf="!email.valid && email.touched">Campo obligatorio</span> -->
-       
-        <input type="password" #password = "ngModel" [(ngModel)]="user.password" class="input-block-level" placeholder="Password" name="password" required />
-        <button type="submit" name="btn-login">Login</button>
-        <p class="message">Not registered? <a href="#" (click) = "toggleLogin()">Create an account</a>
-        </p>
-      </form>
+      <!-- Mensaje error login/registro -->
+
+      <div class="alert alert-danger error-message" role="alert" *ngIf="errorMessage">
+        <strong>Error!</strong> {{errorMessage}}
+      </div>
+
+      <!-- Mensaje exito login/registro  -->
+      <div class="alert alert-success success-message" role="alert" *ngIf="successMessage">
+        {{successMessage}}
+      </div>
+
     </div>
-
-    <!-- Mensaje error login/registro -->
-
-    <div class="alert alert-danger error-message" role="alert" *ngIf="errorMessage">
-      <strong>Error!</strong> {{errorMessage}}
-    </div>
-
-    <!-- Mensaje exito login/registro  -->
-    <div class="alert alert-success success-message" role="alert" *ngIf="successMessage">
-      {{successMessage}}
-    </div>
-
   </div>
+
 </div>
+
 
 <!-- END CONTAINER -->
 </div> 

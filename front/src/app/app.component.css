@@ -1,8 +1,24 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+
+/* GENERALES */
+.container-fluid {
+      background-image: url(../assets/img/music_background_wallpaper.jpg);
+      background-position: center;
+      background-size: cover;
+
+}
+.container-fluid .row {
+  
+  height: 100vh;
+}
+
+
 /*LOGIN*/
 
-@import url(https://fonts.googleapis.com/css?family=Lato);
 #log_reg {
-  background-image: url(http://static.tumblr.com/4aa2d12cad2b611779826ebb25800842/9nimsoa/4Hymox5z5/tumblr_static_mistyforestagain.jpg);
+  background-image : url(../assets/img/music_background_wallpaper.jpg);
+
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -17,14 +33,14 @@
 .form {
   position: relative;
   z-index: 1;
-  opacity: 0.75;
+  opacity: 0.8;
   background: #FFFFFF;
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 45px;
   height: 460px;
   text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, .2);
 }
 
 .form input {
@@ -152,7 +168,7 @@
   .navigation {
     text-align: center;
     color: white;
-    background: rgb(44, 39, 121);
+    background: rgba(39, 38, 43, 0.8);
   }
   .navigation a {
     color: #ddd;
@@ -173,9 +189,10 @@
     
 
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     width: 75%;
-    border-top: 1px solid #444444;
+	border-top: 1px solid #444444;
+	padding-top: 20px;
   }
   #user_logged a {
     text-decoration: none;
@@ -187,11 +204,18 @@
   }
 
   .central {
-    background-image: url(http://static.tumblr.com/4aa2d12cad2b611779826ebb25800842/9nimsoa/4Hymox5z5/tumblr_static_mistyforestagain.jpg);
-    background-position: center;
-    background-size: cover;
 
+    color: white;
   }
+  .user-image {
+	  width: 100%;
+  }
+
+  .user-image img {
+    width: 70%;
+  
+  }
+
 
 
 
