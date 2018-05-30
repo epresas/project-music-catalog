@@ -13,6 +13,7 @@
             "app",
             "kebab-case"
         ],
-        "indent": [true, "tabs", 4]
+        "indent": [true, "tabs", 4],
+        "prefer-const": false
     }
 }

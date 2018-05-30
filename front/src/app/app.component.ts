@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { User } from './models/user';
 import { UserService } from './services/user.service';
+import { GLOBAL } from './services/global';
 
 
 @Component({
@@ -45,6 +46,7 @@ export class AppComponent implements OnInit {
   public token;
   public errorMessage;
   public successMessage;
+  public url: string;
 
   public loginState: String = 'in';
   public registerState: String = 'out';
@@ -54,14 +56,12 @@ export class AppComponent implements OnInit {
   ) {
 	this.user = new User ('', '', '', '', '', 'ROLE_USER', '');
 	this.user_register = new User ('', '', '', '', '', 'ROLE_USER', '');
+	this.url = GLOBAL.url;
   }
 
   ngOnInit() {
 	this.identity = this._userService.getIdentity();
 	this.token = this._userService.getToken();
-
-	console.log(this.identity);
-	console.log(this.token);
 
   }
 

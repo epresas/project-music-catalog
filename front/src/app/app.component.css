@@ -123,11 +123,75 @@
 
 }
 
-body {
-  background: #f3f3f3;
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-/*FIN VERSION 1*/
+/* DASHBOARD */
+  body {
+    background: #f3f3f3;
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,body {
+    margin: 0px;
+    height: 100%;
+  }
+
+  .head-title {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .head-title a{
+    text-decoration: none;
+  }
+
+  
+  .navigation {
+    text-align: center;
+    color: white;
+    background: rgb(44, 39, 121);
+  }
+  .navigation a {
+    color: #ddd;
+    margin: 20px 0;
+    display: block;
+
+  }
+  .navigation a:hover {
+    color: white;
+  }
+  .navigation .fas {
+    font-size: 20px;
+    display: block;
+    width: 100%;
+  }
+
+  #user_logged {
+    
+
+    position: absolute;
+    bottom: 0;
+    width: 75%;
+    border-top: 1px solid #444444;
+  }
+  #user_logged a {
+    text-decoration: none;
+
+  }
+  #user_logged a:hover {
+    color: white;
+
+  }
+
+  .central {
+    background-image: url(http://static.tumblr.com/4aa2d12cad2b611779826ebb25800842/9nimsoa/4Hymox5z5/tumblr_static_mistyforestagain.jpg);
+    background-position: center;
+    background-size: cover;
+
+  }
+
+
+
