@@ -1,0 +1,39 @@
+<div class="col-lg-6 offset-3">
+
+	<h1>{{titulo}}</h1>
+	<form #formArtist="ngForm" (ngSubmit)="onSubmit()">
+		<div class="title">
+			<p>{{titulo}}</p>
+		</div>
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input type="text" #name="ngModel" [(ngModel)]="artist.name" class="form-control" placeholder="Name" name="name" required/>
+			<span *ngIf="!name.valid && name.touched"> Artist name not valid. Please enter artist name.</span>
+		</div>
+		<div class="form-group">
+			<label for="description">Description</label>
+			<textarea placeholder="Artist description" name="description" class="form-control"  #description="ngModel" [(ngModel)]="artist.description" id="" cols="30" rows="5" required></textarea>
+			<span *ngIf="!description.valid && description.touched"> Description is mandatory.</span>
+		</div>
+	
+		<div class="image-for-edit form-group" *ngIf="artist.image">
+			<img src="{{url+ 'artist-get-avatar/' + artist.image}}" alt="" style="width: 200px" class="img-thumbnail" onerror="this.onerror=null; this.src='../../assets/img/defaultAvatar.png';">
+		</div>
+		
+		<input type="submit" value="{{titulo}}" [disabled]="!formArtist.form.valid" class="btn btn alert-success">
+	</form>
+
+	<!-- Mensaje error  -->
+
+	<div class="alert alert-danger error-message" role="alert" *ngIf="errorMessage">
+	<strong>Error!</strong> {{errorMessage}}
+	</div>
+
+	<!-- Mensaje exito  -->
+	<div class="alert alert-success success-message" role="alert" *ngIf="successMessage">
+ 	{{successMessage}}
+
+	</div>
+
+
+</div>

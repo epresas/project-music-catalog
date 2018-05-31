@@ -1,6 +1,5 @@
-<div class="col-lg-6 user-edit" *ngIf="identity">
+<div class="col-lg-6 user-edit offset-3" *ngIf="identity">
  
-  
 <form class="update-form" #updateForm="ngForm" (ngSubmit)="onSubmit()" >
 	<div class="title">
     	<p>{{titulo}}</p>
@@ -22,7 +21,7 @@
 		<input type="file" class="form-control" placeholder="Upload image" (change)="fileChangeEvent($event)" />
 	</div>
 	<div class="image-for-edit form-group" *ngIf="user.image">
-		<img src="{{url+ 'user-get-avatar/' + user.image}}" alt="" style="width: 200px" class="img-thumbnail">
+		<img src="{{url+ 'user-get-avatar/' + user.image}}" alt="" style="width: 200px" class="img-thumbnail" onerror="this.onerror=null; this.src='../../assets/img/defaultAvatar.png';">
 	</div>
 	
 	

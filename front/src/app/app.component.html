@@ -19,8 +19,8 @@
   
       </nav>
       <nav id="user_logged" class="col-lg-12 ">
-          <div class="user-image rounded" >
-          <img id="user-image" src="{{url + 'user-get-avatar/' + identity.image}}" alt="" onerror="this.onerror=null;this.src='imagefound.gif';" >
+          <div class="user-image " >
+          <img id="user-image rounded" src="{{url + 'user-get-avatar/' + identity.image}}" alt="" onerror="this.onerror=null; this.src='assets/img/defaultAvatar.png';" >
           </div>
   
           <span id="identity_name">{{identity.name}}</span>
@@ -34,7 +34,7 @@
   </div>
 
 
-  <div [class.hidden]="!identity" class="central col-lg-11">
+  <div *ngIf="identity" class="central col-lg-11">
     
     <div class="padding-20"></div>
     <router-outlet></router-outlet>
@@ -60,7 +60,7 @@
             <input type="text" #surname= "ngModel" [(ngModel)]="user_register.surname" placeholder="surname" name = "surname"  required/>
             <input type="email" #email= "ngModel" [(ngModel)]="user_register.email" placeholder="email address" name = "email" required />
             <input type="password" #password= "ngModel" [(ngModel)]="user_register.password" placeholder="password" name = "password"  required/>
-            <button class="button" type="submit" name="btn-login">Login</button>
+            <button class="button" type="submit" name="btn-login">Create</button>
 
 
           

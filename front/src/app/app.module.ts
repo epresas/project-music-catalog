@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { ArtistListComponent } from './components/artist-list/artist-list.component';
 import { HomeComponent } from './components/home/home.component';
+import { ArtistAddComponent } from './components/artist-add/artist-add.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HomeComponent } from './components/home/home.component';
 	  UserEditComponent,
 	  ArtistListComponent,
 	  HomeComponent,
+	  ArtistAddComponent,
   ],
   imports: [
 	  BrowserModule,

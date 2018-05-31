@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
+
 import { User } from './models/user';
 import { UserService } from './services/user.service';
 import { GLOBAL } from './services/global';
@@ -56,7 +57,8 @@ export class AppComponent implements OnInit {
   constructor(
 		private _route: ActivatedRoute,
 		private _router: Router,
-		private _userService: UserService
+		private _userService: UserService,
+
   ) {
 	this.user = new User ('', '', '', '', '', 'ROLE_USER', '');
 	this.user_register = new User ('', '', '', '', '', 'ROLE_USER', '');
@@ -66,6 +68,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
 	this.identity = this._userService.getIdentity();
 	this.token = this._userService.getToken();
+
+
 
   }
 
@@ -154,7 +158,7 @@ export class AppComponent implements OnInit {
 			console.log('Error de creación de usuario (onSubmitRegister).');
 		} else {
 			// tslint:disable-next-line:max-line-length
-			this.successMessage = 'Register successful!, now you can log with the user name <strong>' + this.user_register.email + '</strong>';
+			this.successMessage = 'Register successful!, now you can log with the user name ' + this.user_register.email ;
 			setTimeout(() => {
 				this.successMessage = null;
 			}, 3000);

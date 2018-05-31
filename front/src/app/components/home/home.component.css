@@ -1,0 +1,9 @@
+body {
+    overflow-y: hidden;
+}
+.central-options {
+    height: 600px;
+}
+.central-options .row {
+    height: 400px;
+}
