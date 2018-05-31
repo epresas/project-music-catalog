@@ -1,0 +1,5 @@
+<div *ngIf="identity" class="head-page">
+  <h1>{{titulo}}</h1>
+<a *ngIf="identity && identity.role === 'ROLE_ADMIN'" href="" class="btn btn-primary">Add artist</a>
+
+</div>

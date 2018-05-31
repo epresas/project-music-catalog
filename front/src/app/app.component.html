@@ -1,4 +1,6 @@
+
 <div class="container-fluid ">
+
 
 
 <!-- DASHBOARD -->
@@ -9,29 +11,32 @@
             {{title}}
         </a>
     </h1>
-    <nav id="navigation">
-        <a ><span class="fas fa-search" aria-hidden="true"></span> Search</a>
-        <a ><span class="fas fa-star" aria-hidden="true"></span> Artists</a>
-        <a ><span class="fas fa-music" aria-hidden="true"></span >Albums</a>   
-
-    </nav>
-    <nav id="user_logged">
-        <div class="user-image rounded" >
-        <img id="user-image" src="{{url + 'user-get-avatar/' + identity.image}}" alt="" onerror="this.onerror=null;this.src='imagefound.gif';" >
-        </div>
-
-        <span id="identity_name">{{identity.name}}</span>
-
-       
-        <a  [routerLink]="['/user-data']"><span class="fas fa-user-edit" aria-hidden="true" ></span>User edit</a>
-        <a class="btn logout-button " (click)="logOut()"><span class="fas fa-sign-out-alt"></span> Log out</a>
-    </nav>
+    <div class="row">
+      <nav id="navigation" class="col-lg-12 ">
+          <a ><span class="fas fa-search" aria-hidden="true"></span> <span class="nav-item-text">Search</span></a>
+          <a [routerLink]="['/artists',1]" [routerLinkActive]="['activeLink']"><span class="fas fa-star" aria-hidden="true"></span> <span class="nav-item-text">Artists</span></a>
+          <a ><span class="fas fa-music" aria-hidden="true"></span ><span class="nav-item-text">Albums</span></a>   
+  
+      </nav>
+      <nav id="user_logged" class="col-lg-12 ">
+          <div class="user-image rounded" >
+          <img id="user-image" src="{{url + 'user-get-avatar/' + identity.image}}" alt="" onerror="this.onerror=null;this.src='imagefound.gif';" >
+          </div>
+  
+          <span id="identity_name">{{identity.name}}</span>
+  
+         
+          <a  [routerLink]="['/user-data']" [routerLinkActive]="['activeLink']"><span class="fas fa-user-edit" aria-hidden="true" ></span><span class="nav-item-text">User edit</span></a>
+          <a class="btn logout-button " (click)="logOut()"><span class="fas fa-sign-out-alt"></span> <span class="logout-text">Log out</span></a>
+      </nav>
+    </div>
 
   </div>
 
 
-  <div *ngIf="identity" class="central col-lg-11">
+  <div [class.hidden]="!identity" class="central col-lg-11">
     
+    <div class="padding-20"></div>
     <router-outlet></router-outlet>
    
   </div>

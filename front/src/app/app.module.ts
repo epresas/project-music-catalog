@@ -10,11 +10,15 @@ import { UserService } from './services/user.service';
 import { routing, appRoutingProviders } from './app.routing';
 import { AppComponent } from './app.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { ArtistListComponent } from './components/artist-list/artist-list.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
 	  AppComponent,
-	  UserEditComponent
+	  UserEditComponent,
+	  ArtistListComponent,
+	  HomeComponent,
   ],
   imports: [
 	  BrowserModule,

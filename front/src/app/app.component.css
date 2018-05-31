@@ -164,6 +164,7 @@
     color: #ddd;
     margin: 20px 0;
     display: block;
+    text-decoration: none;
 
   }
   .navigation a:hover {
@@ -177,11 +178,14 @@
 
   #user_logged { 
 
-    position: absolute;
-    bottom: 20px;
-    width: 80%;
+	position: absolute;
+	bottom: 20px;
+	width: 95%;
+	left: 50%;
+	transform: translateX(-50%);
 	border-top: 1px solid #828282;
 	padding-top: 20px;
+
   }
   #user_logged a {
 	text-decoration: none;
@@ -209,6 +213,81 @@
 	  font-size: 16px;
 	  display: inline;
   }
+ .logout-button .logout-text {
+   margin-left: 5px;
+ }
+
+
+
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 1420px) {
+  #identity_name {
+    font-size: 14px;
+  }
+  
+  a.btn.logout-button {
+    font-size: 10px;
+    width: 60px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .logout-button .logout-text {
+    display: none;
+  }
+
+}
+
+/* GALAXY S5 */
+@media screen and (max-width: 360px) and (max-height: 640px) {
+
+	#user_logged .nav-item-text,
+	#identity_name,
+	#navigation .nav-item-text,
+	.head-title,
+	.user-image {
+
+		display: none;
+	}
+	.navigation {
+		height: 10%;
+	}
+
+	#navigation {
+		width: 45%;
+	}
+	#navigation a,
+	#user_logged a {
+
+		display: inline-block;
+		margin: 5px 10px;
+	}
+
+	#user_logged {
+		width: 45%;
+		position: initial;
+		transform: translateX(50%);
+		display: block;
+		padding-top: 0;
+		border: 0;
+
+	}
+	#user_logged a {
+		display: inline-block;
+
+	}
+
+	#identity_name {
+		display: none;
+	}
+
+
+
+
+
+}
 
 
 

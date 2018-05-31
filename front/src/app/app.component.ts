@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+
 import { User } from './models/user';
 import { UserService } from './services/user.service';
 import { GLOBAL } from './services/global';
@@ -52,7 +54,9 @@ export class AppComponent implements OnInit {
   public registerState: String = 'out';
 
   constructor(
-	private _userService: UserService
+		private _route: ActivatedRoute,
+		private _router: Router,
+		private _userService: UserService
   ) {
 	this.user = new User ('', '', '', '', '', 'ROLE_USER', '');
 	this.user_register = new User ('', '', '', '', '', 'ROLE_USER', '');
@@ -135,6 +139,7 @@ export class AppComponent implements OnInit {
 	localStorage.clear(); // Limpiando el localStorage completamente
 	this.identity = null; // Asi queda vacío y carga el HTML del Login
 	this.token = null;
+	this._router.navigate(['/']);
   }
 
   onSubmitRegister() {
@@ -175,7 +180,6 @@ export class AppComponent implements OnInit {
 
   // Metodos para animar los formularios de Login y Registro
   public toggleLogin() {
-
 	this.loginState = this.loginState === 'out' ? 'in' : 'out';
 	this.registerState = 'in';
   }
