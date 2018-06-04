@@ -22,9 +22,11 @@
 
 		<div class="card-body">
 			<h5 class="card-title">{{artist.name}}</h5>
-			<p class="card-text">{{artist.description}}</p>
+		</div>
+		<div class="card-footer">
 			<a class="btn btn-sm btn-success" [routerLink]="['/edit-artist', artist._id]" *ngIf="identity.role === 'ROLE_ADMIN'">Edit artist</a>
-			<a class="btn btn-sm btn-danger" *ngIf="identity.role === 'ROLE_ADMIN'">Delete album</a>
+			<a class="btn btn-sm btn-danger" *ngIf="identity.role === 'ROLE_ADMIN'">Delete artist</a>
+
 		</div>
 		</div>
 
