@@ -46,18 +46,19 @@ export class ArtistAddComponent implements OnInit {
 	}
 
 	public onSubmit() {
-		console.log(this.artist);
+		// console.log(this.artist);
 		this._artistService.addArtist(this.token, this.artist).subscribe(
 			response => {
-				if (!response.artist) {
+				if (!response) {
 					console.log('Error creando artista.');
 				} else {
 					this.artist = response;
 					this.successMessage = 'Artist created!';
+					console.log('Correcto (onSubmit)', response);
+					this._router.navigate(['/edit-artist/', response._id]);
 					setTimeout(() => {
 						this.successMessage = null;
 					}, 3000);
-					// this._router.navigate(['/artist-edit'], response.artist._id);
 
 				}
 			},

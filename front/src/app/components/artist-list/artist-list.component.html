@@ -2,5 +2,33 @@
   
   <h1>{{titulo}}</h1>
   
+	<a *ngIf="identity && identity.role === 'ROLE_ADMIN'" class="btn btn-primary" [routerLink]="['/add-artist']">Add artist</a>
+		<div class="padding-20"></div>
+
+	<nav aria-label="Page navigation">
+
+		<ul class="pagination pull-right justify-content-end">
+			<li class="page-item"><a [routerLink]="['/artists', prev_page]"><i class="fas fa-arrow-circle-left"></i></a></li>
+			<li class="page-item"><a [routerLink]="['/artists', next_page]"><i class="fas fa-arrow-circle-right"></i></a></li>
+		</ul>
+	</nav>
+
 </div>
-<a *ngIf="identity && identity.role === 'ROLE_ADMIN'" class="btn btn-primary" [routerLink]="['/add-artist']">Add artist</a>
+<div class="clearfix"></div>
+<ul class="artist-list row" *ngIf="identity">
+	<li *ngFor="let artist of artists, let i=index" class="col-lg-3 col-md-6 col-sm-12 artist-item">
+		<div class="card" >
+		<img class="card-img-top artist-item-image" src="{{url +  'artist-get-image/' + artist.image}}" alt="Artist image" onerror="this.onerror=null; this.src='assets/img/band.jpg';">
+
+		<div class="card-body">
+			<h5 class="card-title">{{artist.name}}</h5>
+			<p class="card-text">{{artist.description}}</p>
+			<a class="btn btn-sm btn-success" [routerLink]="['/edit-artist', artist._id]" *ngIf="identity.role === 'ROLE_ADMIN'">Edit artist</a>
+			<a class="btn btn-sm btn-danger" *ngIf="identity.role === 'ROLE_ADMIN'">Delete album</a>
+		</div>
+		</div>
+
+		
+	</li>
+
+</ul>

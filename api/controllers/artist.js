@@ -36,7 +36,7 @@ function getArtists(req,res) {
     } else {
         var page = 1
     }
-    var itemsPage = 3;
+    var itemsPage = 4;
 //se obtienen y ordenan los artistas
     Artist.find().sort('name').paginate(page, itemsPage, (err, artists, total)=>{
         if (err) {
@@ -52,6 +52,7 @@ function getArtists(req,res) {
 
             } else {
                 return res.status(200).send({
+                    page: page,
                     total_items: total,
                     artists: artists
                 });
@@ -77,7 +78,6 @@ function createArtist(req,res) {
                 res.status(500).send({"message": err.message});
                 
             } else {
-                
                 res.status(200).send(artist);
             }
             

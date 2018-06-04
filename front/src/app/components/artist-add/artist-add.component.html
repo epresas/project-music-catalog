@@ -1,10 +1,10 @@
-<div class="col-lg-6 offset-3">
+
+<div class="col-lg-6 offset-3" *ngIf="identity && identity.role === 'ROLE_ADMIN'">
 
 	<h1>{{titulo}}</h1>
+	
 	<form #formArtist="ngForm" (ngSubmit)="onSubmit()">
-		<div class="title">
-			<p>{{titulo}}</p>
-		</div>
+
 		<div class="form-group">
 			<label for="name">Name</label>
 			<input type="text" #name="ngModel" [(ngModel)]="artist.name" class="form-control" placeholder="Name" name="name" required/>
@@ -15,12 +15,19 @@
 			<textarea placeholder="Artist description" name="description" class="form-control"  #description="ngModel" [(ngModel)]="artist.description" id="" cols="30" rows="5" required></textarea>
 			<span *ngIf="!description.valid && description.touched"> Description is mandatory.</span>
 		</div>
-	
-		<div class="image-for-edit form-group" *ngIf="artist.image">
-			<img src="{{url+ 'artist-get-avatar/' + artist.image}}" alt="" style="width: 200px" class="img-thumbnail" onerror="this.onerror=null; this.src='../../assets/img/defaultAvatar.png';">
+		<div *ngIf="is_edit">
+
+			<div class="imageForEdit" *ngIf="artist.image && artist.image !== 'null'">
+				<img src="{{url +  'artist-get-image/' + artist.image}}" alt="" onerror="this.onerror=null; this.src='assets/img/band.jpg';">
+			</div>
+			<div class="form-group">
+				<label for="image">Artist image</label>
+				<p><input type="file" name="image" id="image" (change)="fileChangeEvent($event)"></p>
+			</div>
+
 		</div>
 		
-		<input type="submit" value="{{titulo}}" [disabled]="!formArtist.form.valid" class="btn btn alert-success">
+		<input type="submit" value="{{titulo}}" [disabled]="!formArtist.form.valid" class="btn btn-success">
 	</form>
 
 	<!-- Mensaje error  -->
@@ -31,9 +38,14 @@
 
 	<!-- Mensaje exito  -->
 	<div class="alert alert-success success-message" role="alert" *ngIf="successMessage">
- 	{{successMessage}}
+	{{successMessage}}
 
 	</div>
 
 
 </div>
+<div class="col-lg-6 offset-3" *ngIf="!identity && identity.role !== 'ROLE_ADMIN'">
+	<h1>Error</h1>
+	<p>Acceso prohibido a esta sección de la aplicacion</p>
+</div>
+

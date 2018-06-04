@@ -1,0 +1,47 @@
+.artist-list {
+    margin: 0;
+    padding: 0;
+    margin-top: 40px;
+    list-style: none;
+}
+.artist-item {
+    margin: 0;
+    padding: 0;
+}
+.row {
+    height: 60%;
+}
+.card {
+    width: 19rem;
+    height: 400px;
+    margin: 15px;
+}
+.card h5 {
+    color: black
+}
+.card p {
+    color: black;
+    margin-bottom: 20px;
+}
+
+.card a {
+    margin-right: 5px;
+}
+.card .artist-item-image {
+   height: 200px;
+}
+
+.page-item {
+    padding: 5px;
+}
+
+.pagination {
+    padding-right: 10px;
+}
+
+.fa-arrow-circle-left,
+.fa-arrow-circle-right
+ {
+    font-size: 20px;
+}
+ 
