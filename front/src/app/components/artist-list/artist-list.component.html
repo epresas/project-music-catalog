@@ -18,16 +18,21 @@
 <ul class="artist-list row" *ngIf="identity">
 	<li *ngFor="let artist of artists, let i=index" class="col-lg-3 col-md-6 col-sm-12 artist-item">
 		<div class="card" >
-		<img class="card-img-top artist-item-image" src="{{url +  'artist-get-image/' + artist.image}}" alt="Artist image" onerror="this.onerror=null; this.src='assets/img/band.jpg';">
+			<img class="card-img-top artist-item-image" src="{{url +  'artist-get-image/' + artist.image}}" alt="Artist image" onerror="this.onerror=null; this.src='assets/img/band.jpg';">
 
-		<div class="card-body">
-			<h5 class="card-title">{{artist.name}}</h5>
-		</div>
-		<div class="card-footer">
-			<a class="btn btn-sm btn-success" [routerLink]="['/edit-artist', artist._id]" *ngIf="identity.role === 'ROLE_ADMIN'">Edit artist</a>
-			<a class="btn btn-sm btn-danger" *ngIf="identity.role === 'ROLE_ADMIN'">Delete artist</a>
+			<div class="card-body">
+				<a [routerLink]="['/artist', artist._id]" class="card-title">{{artist.name}}</a>
+			</div>
+			<div class="card-footer" *ngIf="identity.role === 'ROLE_ADMIN'">
+				<a class="btn btn-sm btn-success" [routerLink]="['/edit-artist', artist._id]" >Edit artist</a>
+				<a class="btn btn-sm btn-danger" (click)="onDeleteConfirm(artist._id)"> Delete artist </a>
 
-		</div>
+			</div>
+			<div class="confirmation" *ngIf="confirmed === artist._id">
+				<p>Delete artist?</p>
+				<a class="btn btn-sm btn-success" (click)="onDeleteArtist(artist._id)" >Delete</a>
+				<a class="btn btn-sm btn-danger" (click)="onCancelArtist()" > Cancel </a>
+			</div>
 		</div>
 
 		

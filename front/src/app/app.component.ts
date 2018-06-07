@@ -5,6 +5,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { User } from './models/user';
 import { UserService } from './services/user.service';
+import { ArtistService } from './services/artist.service';
 import { GLOBAL } from './services/global';
 
 
@@ -12,7 +13,7 @@ import { GLOBAL } from './services/global';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [UserService],
+	providers: [UserService, ArtistService],
   animations: [
 	trigger('loginState', [
 		state('out', style({
@@ -58,6 +59,7 @@ export class AppComponent implements OnInit {
 		private _route: ActivatedRoute,
 		private _router: Router,
 		private _userService: UserService,
+		private _artistService: ArtistService,
 
   ) {
 	this.user = new User ('', '', '', '', '', 'ROLE_USER', '');

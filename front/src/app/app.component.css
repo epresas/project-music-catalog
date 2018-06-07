@@ -201,7 +201,8 @@ body {
 }
 
 .central {
-
+	height: 100%;
+	/* overflow-y:scroll;  */
 	color: white;
 }
 .user-image {

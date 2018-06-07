@@ -26,6 +26,7 @@ export class ArtistListComponent implements OnInit {
 	public next_page;
 	public errorMessage: string;
 	public successMessage: string;
+	public confirmed;
 
 
   constructor(
@@ -86,4 +87,33 @@ export class ArtistListComponent implements OnInit {
 		});
 	}
 
+	// Metodo para confirmar la eliminacion, poniendo el flag al id que se pasa por parametro
+
+	onDeleteConfirm(id) {
+		this.confirmed = id;
+	}
+	// Metodo para cancelar la eliminacion, poniendo el flag a null
+	onCancelArtist() {
+		this.confirmed = null;
+	}
+
+	onDeleteArtist(id) {
+		// Eliminamos el artista pasando el token para autorizarlo
+		this._artistService.deleteArtist(this.token, id).subscribe(
+			response => {
+				if (!response) {
+					alert('Server error');
+				}
+				this.getArtists();
+			},
+			error => {
+				let errorMessage = <any>error;
+				if (errorMessage !== null) {
+					let body = JSON.parse(error._body); // esto extrae el error del body (enviado por la api)
+
+					console.log(error);
+				}
+			}
+		);
+	}
 }

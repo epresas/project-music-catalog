@@ -30,6 +30,9 @@
 .card .artist-item-image {
    height: 200px;
 }
+.card-body a {
+    text-decoration: none;
+}
 
 .page-item {
     padding: 5px;
@@ -45,3 +48,13 @@
     font-size: 20px;
 }
  
+.confirmation {
+    padding: 5px;
+    margin: 0 auto;
+    width:70%;
+    text-align: center;
+}
+.confirmation p {
+    margin-bottom: 10px;
+
+}

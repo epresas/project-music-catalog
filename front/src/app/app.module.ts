@@ -18,6 +18,8 @@ import { ArtistListComponent } from './components/artist-list/artist-list.compon
 import { HomeComponent } from './components/home/home.component';
 import { ArtistAddComponent } from './components/artist-add/artist-add.component';
 import { ArtistEditComponent } from './components/artist-edit/artist-edit.component';
+import { ArtistDetailComponent } from './components/artist-detail/artist-detail.component';
+import { AlbumAddComponent } from './components/album-add/album-add.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { ArtistEditComponent } from './components/artist-edit/artist-edit.compon
 	  HomeComponent,
 	  ArtistAddComponent,
 	  ArtistEditComponent,
+	  ArtistDetailComponent,
+	  AlbumAddComponent,
   ],
   imports: [
 	  BrowserModule,
