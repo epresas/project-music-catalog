@@ -18,7 +18,7 @@
 		<div *ngIf="is_edit">
 
 			<div class="imageForEdit" *ngIf="artist.image && artist.image !== 'null'">
-				<img src="{{url +  'artist-get-image/' + artist.image}}" alt="" onerror="this.onerror=null; this.src='assets/img/band.jpg';">
+				<img id="artistImgEdit" src="{{url +  'artist-get-image/' + artist.image}}" alt="" onerror="this.onerror=null; this.src='assets/img/band.jpg';">
 			</div>
 			<div class="form-group">
 				<label for="image">Artist image</label>
@@ -27,7 +27,7 @@
 
 		</div>
 		
-		<input type="submit" value="{{titulo}}" [disabled]="!formArtist.form.valid" class="btn btn-success">
+		<input type="submit" value="Save artist" [disabled]="!formArtist.form.valid" class="btn btn-success">
 	</form>
 
 	<!-- Mensaje error  -->

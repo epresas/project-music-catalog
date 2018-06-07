@@ -7,9 +7,7 @@
 <div class="row">
   <div *ngIf="identity" class="navigation col-lg-1">
     <h1 class="head-title">
-        <a [routerLink]="['/']">
-            {{title}}
-        </a>
+        <a [routerLink]="['/']" [innerHTML]="title"></a>
     </h1>
     <div class="row">
       <nav id="navigation" class="col-lg-12 ">

@@ -11,6 +11,7 @@ import { Artist } from '../../models/artist';
 	selector: 'app-artist-edit',
 	// Se implementará en el mismo componente de añadir solo que agregando un campo más al formulario
 	templateUrl: '../artist-add/artist-add.component.html',
+	styleUrls: ['../artist-add/artist-add.component.css'],
 	providers: [
 		UserService,
 		ArtistService,
@@ -100,7 +101,7 @@ export class ArtistEditComponent implements OnInit {
 					setTimeout(() => {
 						this.successMessage = null;
 					}, 3000);
-					// this._router.navigate(['/artist-edit'], response.artist._id);
+					this._router.navigate(['/artists', 1]);
 
 					// }
 				},

@@ -21,7 +21,7 @@
 			<img class="card-img-top artist-item-image" src="{{url +  'artist-get-image/' + artist.image}}" alt="Artist image" onerror="this.onerror=null; this.src='assets/img/band.jpg';">
 
 			<div class="card-body">
-				<a [routerLink]="['/artist', artist._id]" class="card-title">{{artist.name}}</a>
+				<a [routerLink]="['/artist', artist._id]" class="card-title" [innerHTML]="artist.name"></a>
 			</div>
 			<div class="card-footer" *ngIf="identity.role === 'ROLE_ADMIN'">
 				<a class="btn btn-sm btn-success" [routerLink]="['/edit-artist', artist._id]" >Edit artist</a>

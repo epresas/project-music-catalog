@@ -8,6 +8,7 @@ import { NgModule } from '@angular/core';
 /* CUSTOM SERVICES */
 import { UserService } from './services/user.service';
 import { ArtistService } from './services/artist.service';
+import { AlbumService } from './services/album.service';
 import { UploadService } from './services/upload.service';
 
 /* CUSTOM COMPONENTS */
@@ -44,7 +45,8 @@ import { AlbumAddComponent } from './components/album-add/album-add.component';
 	  UserService,
 	  appRoutingProviders,
 	  ArtistService,
-	  UploadService
+	  UploadService,
+	  AlbumService
 
 ],
   bootstrap: [AppComponent]

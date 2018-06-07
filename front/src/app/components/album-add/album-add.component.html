@@ -1,3 +1,49 @@
-<p>
-  album-add works!
-</p>
+<div class="col-lg-6 offset-3" *ngIf="identity && identity.role === 'ROLE_ADMIN'">
+
+	<h1>{{titulo}}</h1>
+
+	<form #formAlbum="ngForm" (ngSubmit)="onSubmit()">
+		<div class="form-group">
+			<label for="title">Title</label>
+			<input type="text" #title="ngModel" [(ngModel)]="album.title" class="form-control" placeholder="Title" name="Title" required/>
+			<span *ngIf="!title.valid && title.touched"> Album title not valid. Please enter album title.</span>
+		</div>
+		<div class="form-group">
+			<label for="description">Description</label>
+			<textarea placeholder="Album description" name="description" class="form-control" #description="ngModel" [(ngModel)]="album.description"
+				id="" cols="30" rows="5" required></textarea>
+			<span *ngIf="!description.valid && description.touched"> Description is mandatory.</span>
+		</div>
+		<div class="form-group">
+			<label for="year">Year</label>
+			<input type="text" #year="ngModel" [(ngModel)]="album.year" class="form-control" placeholder="Year" name="year" required/>
+			<span *ngIf="!year.valid && year.touched"> Album year not valid. Please enter album year.</span>
+		</div>
+		<div *ngIf="is_edit">
+
+				<div class="imageForEdit" *ngIf="artist.image && artist.image !== 'null'">
+					<img id="artistImgEdit" src="{{url +  'artist-get-image/' + artist.image}}" alt="" onerror="this.onerror=null; this.src='assets/img/band.jpg';">
+				</div>
+				<div class="form-group">
+					<label for="image">Artist image</label>
+					<p><input type="file" name="image" id="image" (change)="fileChangeEvent($event)"></p>
+				</div>
+
+			</div>
+			
+			<input type="submit" value="Save album" [disabled]="!formAlbum.form.valid" class="btn btn-success">
+
+	</form>
+
+	<!-- Mensaje error  -->
+
+	<div class="alert alert-danger error-message" role="alert" *ngIf="errorMessage">
+	<strong>Error!</strong> {{errorMessage}}
+	</div>
+
+	<!-- Mensaje exito  -->
+	<div class="alert alert-success success-message" role="alert" *ngIf="successMessage">
+	{{successMessage}}
+
+	</div>
+</div>
